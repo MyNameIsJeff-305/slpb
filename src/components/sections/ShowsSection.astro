@@ -4,22 +4,40 @@ import Reveal from "../ui/Reveal.astro";
 
 const shows = [
   {
+    image: "/images/shows/gran-regreso-a-casa-miami-tickets.webp",
+    name: "El Gran Regreso a Casa 2026",
     city: "Miami, FL",
-    date: "25 Abril",
-    venue: "Venue placeholder",
+    date: "Mayo 2026",
+    venue: "Tower Theater",
     status: "Entradas disponibles",
+    link: "https://www.tickettailor.com/events/envivotickets/2142037",
   },
   {
-    city: "Orlando, FL",
-    date: "11 Mayo",
-    venue: "Venue placeholder",
-    status: "Últimos tickets",
+    image: "/images/shows/podcast-en-vivo-mayo.webp",
+    name: "Podcast en Vivo",
+    city: "Miami, FL",
+    date: "30 de Mayo",
+    venue: "Tower Theater",
+    status: "SOLD OUT!",
+    link: "",
   },
   {
+    image: "/images/shows/a-mi-no-me-gusta-la-pasta-houston.webp",
+    name: "A Mi No Me Gusta La Pasta",
+    city: "Houston, TX",
+    date: "23 de Mayo",
+    venue: "Event Center",
+    status: "Last Tickets",
+    link: "https://pietix.com/a-mi-no-me-gusta-la-pasta",
+  },
+  {
+    image: "/images/shows/a-mi-no-me-gusta-la-pasta-tampa.webp",
+    name: "A Mi No Me Gusta La Pasta",
     city: "Tampa, FL",
-    date: "24 Mayo",
-    venue: "Venue placeholder",
-    status: "Nueva fecha",
+    date: "25 de Abril",
+    venue: "Centro Asturiano de Tampa",
+    status: "Last Tickets",
+    link: "https://www.tickettailor.com/events/envivotickets/2096041",
   },
 ];
 ---
@@ -35,30 +53,63 @@ const shows = [
     </Reveal>
 
     <div class="mt-10 grid gap-6 lg:grid-cols-3">
-      {shows.map((show, index) => (
-        <Reveal delay={`${index * 120}ms`}>
-          <article class="glow-panel group relative overflow-hidden p-6 transition duration-300 hover:-translate-y-2">
-            <div class="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,rgb(var(--color-electric-blue)),rgb(var(--color-vivid-magenta)),rgb(var(--color-warm-spark)))]"></div>
+      {
+        shows.map((show, index) => (
+          <Reveal delay={`${index * 120}ms`}>
+            <article class="glow-panel group relative overflow-hidden transition duration-300 hover:-translate-y-2">
+              <div class="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(90deg,rgb(var(--color-electric-blue)),rgb(var(--color-vivid-magenta)),rgb(var(--color-warm-spark)))]" />
 
-            <p class="text-sm font-semibold uppercase tracking-[0.22em] text-[rgb(var(--color-neon-cyan))]">
-              {show.date}
-            </p>
+              <div class="relative h-56 overflow-hidden">
+                <img
+                  src={show.image}
+                  alt={`Poster del show ${show.name} en ${show.city}`}
+                  class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div class="absolute inset-0 bg-[linear-gradient(to_top,rgba(8,10,24,0.88)_0%,rgba(8,10,24,0.25)_45%,rgba(8,10,24,0.05)_100%)]" />
 
-            <h3 class="mt-5 text-3xl text-white">{show.city}</h3>
-            <p class="mt-3 text-base text-[rgb(var(--color-text-secondary))]">{show.venue}</p>
+                <p class="absolute left-5 top-5 text-xs font-semibold uppercase tracking-[0.22em] text-[rgb(var(--color-neon-cyan))]">
+                  {show.date}
+                </p>
+              </div>
 
-            <div class="mt-8 flex items-center justify-between gap-4">
-              <span class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[rgb(var(--color-warm-spark))]">
-                {show.status}
-              </span>
+              <div class="p-6">
+                <p class="text-xs font-semibold uppercase tracking-[0.22em] text-[rgb(var(--color-neon-cyan))]">
+                  {show.city}
+                </p>
 
-              <a href="#" class="text-sm font-semibold text-white transition group-hover:text-[rgb(var(--color-neon-cyan))]">
-                Comprar ticket →
-              </a>
-            </div>
-          </article>
-        </Reveal>
-      ))}
+                <h3 class="mt-3 text-2xl font-black leading-tight text-white sm:text-3xl">
+                  {show.name}
+                </h3>
+
+                <p class="mt-3 text-base text-[rgb(var(--color-text-secondary))]">
+                  {show.venue}
+                </p>
+
+                <div class="mt-8 flex items-center justify-between gap-4">
+                  <span class="rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[rgb(var(--color-warm-spark))]">
+                    {show.status}
+                  </span>
+
+                  {show.link ? (
+                    <a
+                      href={show.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      class="text-sm font-semibold text-white transition group-hover:text-[rgb(var(--color-neon-cyan))]"
+                    >
+                      Comprar ticket →
+                    </a>
+                  ) : (
+                    <span class="text-sm font-semibold text-white/40">
+                      No disponible
+                    </span>
+                  )}
+                </div>
+              </div>
+            </article>
+          </Reveal>
+        ))
+      }
     </div>
   </div>
 </section>

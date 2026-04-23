@@ -1,25 +1,60 @@
-<section id="sobre" class="section-shell">
+<section id="sobre" class="section-shell relative isolate overflow-hidden">
   <div
-    class="container-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center"
+    class="container-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center"
   >
-    <div class="glow-panel min-h-[380px] p-4">
-      <!-- PLACEHOLDER VISUAL:
-           Aquí puedes usar una foto editorial, una composición del set,
-           o incluso un collage de ambos. -->
+    <!-- Columna izquierda / imagen -->
+    <div class="relative bg-[url('/images/about/podcast-background.webp')] min-h-[420px] lg:min-h-[560px] rounded-full">
+      <!-- Glows de fondo -->
       <div
-        class="h-full rounded-[1.25rem] bg-[linear-gradient(135deg,rgba(37,199,255,0.16),rgba(255,47,179,0.12),rgba(255,255,255,0.04))]"
+        class="pointer-events-none absolute -left-10 top-10 h-44 w-44 rounded-full bg-cyan-400/20 blur-[90px]"
+      ></div>
+      <div
+        class="pointer-events-none absolute bottom-6 right-6 h-52 w-52 rounded-full bg-fuchsia-500/20 blur-[110px]"
+      ></div>
+
+      <!-- Contenedor flotante -->
+      <div
+        class="pointer-events-none absolute rounded-full inset-x-0 bottom-0 z-[1] flex justify-start animate-float-slow"
       >
+        <img
+          src="/images/about/los-pichy.webp"
+          alt="Los Pichy Boys"
+          class="w-[min(100%,720px)] h-auto object-contain drop-shadow-[0_18px_70px_rgba(0,0,0,0.45)] rounded-full"
+        />
       </div>
+
+      <!-- Overlay energético -->
+      <div
+        class="pointer-events-none absolute inset-0 z-[2] rounded-[1.6rem] bg-[linear-gradient(135deg,rgba(37,199,255,0.14),rgba(255,47,179,0.10),rgba(255,255,255,0.03))] rounded-full"
+      ></div>
+
+      <!-- Fade inferior -->
+      <div
+        class="pointer-events-none absolute rounded-full h-full inset-x-0 bottom-0 z-[3] bg-gradient-to-t from-[rgba(0,0,0)] to-transparent"
+      ></div>
+
+      <!-- Fade lateral para integrarla mejor -->
+      <div
+        
+      ></div>
     </div>
 
-    <div>
-      <p class="section-kicker">Quiénes son</p>
+    <!-- Columna derecha / texto -->
+    <div class="relative z-10">
+      <p class="section-kicker">Los Pichy Boys &amp; Su Equipo</p>
+
       <h2 class="mt-4 text-5xl text-white md:text-6xl">
-        Más que un podcast. Más que un show.
+        Más que un podcast. Más que un show. Más que un club
       </h2>
+
       <p class="mt-6 text-lg leading-8 text-[rgb(var(--color-text-secondary))]">
-        Placeholder para una bio corta, con energía, identidad y contexto. Aquí
-        luego definimos la voz exacta de la marca.
+        Los Pichy Boys son el super-dúo humorístico conformado por los Cubanos
+        Alejandro González y Maikel Rodríguez. Los Pichy Boys, que son primos
+        por parte de madre, comenzaron haciendo pequeños videos por el año 2007
+        para Youtube en su casa que poco a poco alcanzaban más visitas. Hoy día
+        se han convertido en celebridades internacionales con su podcast, Somos
+        Los Pichy Boys junto a su banda de secuaces. Únete a la banda usando el
+        hashtag #TeamPichyBoys
       </p>
     </div>
   </div>
