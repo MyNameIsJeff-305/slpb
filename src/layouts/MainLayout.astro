@@ -1,0 +1,73 @@
+---
+import "../styles/global.css";
+import SiteHeader from "../components/layout/SiteHeader.astro";
+import SiteFooter from "../components/layout/SiteFooter.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Somos Los Pichy Boys | Podcast, Shows y Universo Digital",
+  description = "La experiencia digital oficial de Los Pichy Boys: shows, episodios, clips, merch y comunidad en un solo lugar.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0A0F2D" />
+
+    <!-- Placeholder de tipografías. Puedes cambiar a self-hosted más adelante si quieres máxima performance. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <SiteHeader />
+    <main>
+      <slot />
+    </main>
+    <SiteFooter />
+
+    <script is:inline>
+      const initReveal = () => {
+        const items = document.querySelectorAll(".reveal");
+
+        if (!("IntersectionObserver" in window)) {
+          items.forEach((item) => item.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.16 },
+        );
+
+        items.forEach((item) => observer.observe(item));
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initReveal);
+      } else {
+        initReveal();
+      }
+    </script>
+  </body>
+</html>
