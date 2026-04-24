@@ -1,30 +1,85 @@
 ---
-const episodes = [1, 2, 3];
+const guests = [
+  {
+    name: "Omar Moynelo",
+    role: "Presentador / Actor / Comediante / El Domador de la Croqueta",
+    instagram: "@omarmoynelo",
+    instagramUrl: "https://www.instagram.com/omarmoynelo",
+    image: "/images/guests/omar-moynelo.webp",
+  },
+  {
+    name: "Carlos Otero",
+    role: "Presentador / Actor / Comediante / El Don Francisco Cubano",
+    instagram: "@carlosotero",
+    instagramUrl: "https://www.instagram.com/carlosoterotv/",
+    image: "/images/guests/carlos-otero.webp",
+  },
+  {
+    name: "Roly El Bananero",
+    role: "Real Estate Expert / Cazador / Seductor de Nacimiento",
+    instagram: "@rolyelbananero",
+    instagramUrl: "https://www.instagram.com/rolyelbananero/",
+    image: "/images/guests/roly-el-bananero.webp",
+  },
+];
+
+import InstagramIcon from "../icons/InstagramIcon.astro";
 ---
 
-<section id="episodios" class="section-shell">
+<section id="invitados-especiales" class="section-shell">
   <div class="container-shell">
     <div class="mb-10 max-w-2xl">
-      <p class="section-kicker">Episodios y clips</p>
-      <h2 class="mt-4 text-5xl text-white md:text-6xl">Momentos que no se quedan en el estudio.</h2>
+      <p class="section-kicker">Invitados Especiales</p>
+
+      <h2 class="mt-4 text-5xl text-white md:text-6xl">
+        Caras conocidas que se suman al relajo.
+      </h2>
+
       <p class="mt-5 text-lg leading-8 text-[rgb(var(--color-text-secondary))]">
-        Aquí irán los episodios o clips destacados. Podemos conectar luego con YouTube, Spotify, cards estáticas o embeds selectivos.
+        Ellos se unen a nosotros para compartir sus historias, experiencias y perspectivas únicas, haciendo que cada episodio sea una aventura diferente y entretenida. ¡No te pierdas la oportunidad de conocer a estas increíbles personas que se suman al relajo!
       </p>
     </div>
 
-    <div class="grid gap-6 lg:grid-cols-3">
-      {episodes.map((item) => (
-        <article class="glow-panel overflow-hidden p-3">
-          <!-- PLACEHOLDER DE THUMBNAIL:
-               Reemplaza con thumbnails reales de episodios o clips.
-               Ruta sugerida: /images/episodes/episode-01.webp -->
-          <div class="aspect-video rounded-[1.25rem] bg-[linear-gradient(135deg,rgba(37,199,255,0.18),rgba(255,47,179,0.14),rgba(255,211,107,0.12))]"></div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {guests.map((guest) => (
+        <article class="group glow-panel overflow-hidden p-3">
+          <!-- PLACEHOLDER DE IMAGEN:
+               Reemplaza con fotos reales de cada invitado.
+               Ruta sugerida: /images/guests/nombre-del-invitado.webp -->
+          <div class="relative aspect-[4/5] overflow-hidden rounded-[1.25rem] bg-[linear-gradient(135deg,rgba(37,199,255,0.18),rgba(255,47,179,0.14),rgba(255,211,107,0.12))]">
+            <img
+              src={guest.image}
+              alt={guest.name}
+              class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            />
+
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[rgb(var(--color-neon-cyan))]">
+                Invitado Especial
+              </p>
+
+              <h3 class="mt-2 text-3xl text-white">
+                {guest.name}
+              </h3>
+            </div>
+          </div>
+
           <div class="p-4">
-            <p class="text-sm uppercase tracking-[0.18em] text-[rgb(var(--color-neon-cyan))]">Clip destacado</p>
-            <h3 class="mt-3 text-2xl text-white">Título placeholder del episodio o clip</h3>
-            <p class="mt-3 text-sm leading-7 text-[rgb(var(--color-text-secondary))]">
-              Espacio para resumen corto del contenido o momento viral.
+            <p class="text-sm leading-6 text-[rgb(var(--color-text-secondary))]">
+              {guest.role}
             </p>
+
+            <a
+              href={guest.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:border-[rgb(var(--color-neon-pink))]/50 hover:bg-[rgb(var(--color-neon-pink))]/10 hover:text-[rgb(var(--color-neon-pink))]"
+            >
+              <InstagramIcon />
+              <span>{guest.instagram}</span>
+            </a>
           </div>
         </article>
       ))}

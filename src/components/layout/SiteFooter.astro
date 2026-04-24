@@ -1,23 +1,209 @@
-<footer class="relative border-t border-white/10 py-12">
-  <div
-    class="container-shell flex flex-col gap-8 md:flex-row md:items-end md:justify-between"
-  >
-    <div class="max-w-xl space-y-3">
-      <p class="section-kicker">Somos Los Pichy Boys</p>
-      <h2 class="text-3xl text-white md:text-4xl">
-        El show sigue encendido fuera del escenario.
-      </h2>
-      <p class="text-base leading-8 text-[rgb(var(--color-text-secondary))]">
-        Shows, episodios, clips, comunidad y todo el universo digital de la
-        marca en una sola experiencia.
-      </p>
-    </div>
+---
+import InstagramIcon from "../icons/InstagramIcon.astro";
+import YouTubeIcon from "../icons/YoutubeIcon.astro";
+import FacebookIcon from "../icons/FacebookIcon.astro";
+import TikTokIcon from "../icons/TikTokIcon.astro";
+import SpotifyIcon from "../icons/SpotifyIcon.astro";
 
-    <div class="grid gap-2 text-sm text-[rgb(var(--color-text-secondary))]">
-      <a href="#top" class="transition hover:text-white">Volver arriba</a>
-      <a href="#shows" class="transition hover:text-white">Shows</a>
-      <a href="#episodios" class="transition hover:text-white">Episodios</a>
-      <a href="#comunidad" class="transition hover:text-white">Comunidad</a>
+---
+
+<footer
+  class="relative overflow-hidden border-t border-white/10 py-14 md:py-16"
+>
+  <!-- Ambient background -->
+  <div class="pointer-events-none absolute inset-0">
+    <div
+      class="absolute left-1/2 top-0 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-[rgb(var(--color-neon-cyan))]/10 blur-[90px]"
+    >
+    </div>
+    <div
+      class="absolute bottom-[-120px] right-[-80px] h-[320px] w-[320px] rounded-full bg-[rgb(var(--color-neon-pink))]/10 blur-[90px]"
+    >
+    </div>
+    <div class="grid-noise absolute inset-0 opacity-30"></div>
+  </div>
+
+  <div class="container-shell relative z-10">
+    <div class="glow-panel overflow-hidden p-6 sm:p-8 md:p-10">
+      <div class="grid gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr] lg:items-start">
+        <!-- Brand block -->
+        <div class="max-w-xl">
+          <a href="#top" class="inline-flex items-center gap-4">
+            <div
+              class="flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl shadow-[0_0_35px_rgba(37,199,255,0.18)]"
+            >
+              <img
+                src="/images/branding/pichy-logo-main.png"
+                alt="Somos Los Pichy Boys"
+                class="h-full w-full"
+              />
+            </div>
+
+            <div>
+              <p class="section-kicker">Somos</p>
+              <p class="mt-1 text-xl font-semibold text-white">
+                LOS PICHY BOYS
+              </p>
+            </div>
+          </a>
+
+          <p
+            class="mt-4 text-base leading-8 text-[rgb(var(--color-text-secondary))]"
+          >
+            El podcast #1 de comedia en español, donde el humor cubano se
+            encuentra con historias reales, invitados especiales y una comunidad
+            que vive el relajo.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a
+              href="#shows"
+              class="rounded-full bg-white px-5 py-3 text-sm font-bold text-black transition hover:-translate-y-0.5 hover:bg-[rgb(var(--color-neon-cyan))]"
+            >
+              Comprar Tickets
+            </a>
+
+            <a
+              href="#comunidad"
+              class="rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/10"
+            >
+              Únete a la comunidad
+            </a>
+          </div>
+        </div>
+
+        <!-- Main links -->
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-[0.2em] text-white">
+            Explora
+          </h3>
+
+          <nav
+            class="mt-5 grid gap-3 text-sm text-[rgb(var(--color-text-secondary))]"
+          >
+            <a
+              href="#top"
+              class="transition hover:translate-x-1 hover:text-white"
+            >
+              Inicio
+            </a>
+            <a
+              href="#shows"
+              class="transition hover:translate-x-1 hover:text-white"
+            >
+              Shows
+            </a>
+            <a
+              href="#podcasts"
+              class="transition hover:translate-x-1 hover:text-white"
+            >
+              Episodios
+            </a>
+            <a
+              href="#universo"
+              class="transition hover:translate-x-1 hover:text-white"
+            >
+              Universo
+            </a>
+            <a
+              href="#merch"
+              class="transition hover:translate-x-1 hover:text-white"
+            >
+              Merch
+            </a>
+            <a
+              href="#sponsors"
+              class="transition hover:translate-x-1 hover:text-white"
+            >
+              Sponsors
+            </a>
+            <a
+              href="#comunidad"
+              class="transition hover:translate-x-1 hover:text-white"
+            >
+              Comunidad
+            </a>
+          </nav>
+        </div>
+
+        <!-- Social / contact -->
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-[0.2em] text-white">
+            Conecta
+          </h3>
+
+          <div
+            class="mt-5 grid gap-3 text-sm text-[rgb(var(--color-text-secondary))]"
+          >
+            <a
+              href="https://www.instagram.com/lospichyboys/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 transition hover:border-[rgb(var(--color-neon-pink))]/40 hover:bg-white/10 hover:text-white"
+            >
+              <div class="flex flex-row gap-3">
+                <InstagramIcon class="h-5 w-5" />
+                <span>Instagram</span>
+              </div>
+              <span class="transition group-hover:translate-x-1">→</span>
+            </a>
+
+            <a
+              href="https://www.youtube.com/@ElPichyFilms/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 transition hover:border-[rgb(var(--color-neon-cyan))]/40 hover:bg-white/10 hover:text-white"
+            >
+              <div class="flex flex-row gap-3">
+                <YouTubeIcon class="h-5 w-5" />
+                <span>YouTube</span>
+              </div>
+              <span class="transition group-hover:translate-x-1">→</span>
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@lospichyboys"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
+            >
+              <div class="flex flex-row gap-3">
+                <TikTokIcon class="h-5 w-5" />
+                <span>TikTok</span>
+              </div>
+              <span class="transition group-hover:translate-x-1">→</span>
+            </a>
+
+            <a
+              href="https://open.spotify.com/show/1upx5Tj53g3NkYyjITBzMM"
+              class="group flex items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
+            >
+              <div class="flex flex-row gap-3">
+                <SpotifyIcon class="h-5 w-5" />
+                <span>Spotify</span>
+              </div>
+              <span class="transition group-hover:translate-x-1">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div
+        class="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-[rgb(var(--color-text-secondary))] md:flex-row md:items-center md:justify-between"
+      >
+        <p>
+          © {new Date().getFullYear()} Somos Los Pichy Boys. Todos los derechos reservados.
+        </p>
+
+        <div class="flex flex-wrap gap-x-5 gap-y-2">
+          <a href="#top" class="transition hover:text-white"> Volver arriba </a>
+          <a href="#sponsors" class="transition hover:text-white"> Sponsors </a>
+          <a href="#comunidad" class="transition hover:text-white">
+            Comunidad
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>

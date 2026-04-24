@@ -1,0 +1,149 @@
+---
+type Video = {
+  id: string;
+  title: string;
+  channel: string;
+  thumbnail: string;
+  url: string;
+  publishedAt: string;
+};
+
+let videos: Video[] = [];
+
+try {
+  const response = await fetch(`${Astro.url.origin}/api/youtube.json`);
+  const data = await response.json();
+  videos = data.videos || [];
+} catch {
+  videos = [];
+}
+---
+
+<section id="podcasts" class="section-shell overflow-hidden">
+  <div class="container-shell">
+    <div class="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+      <div class="max-w-2xl">
+        <p class="section-kicker">YouTube</p>
+
+        <h2 class="mt-4 text-5xl text-white md:text-6xl">
+          Últimos podcasts
+        </h2>
+
+        <p class="mt-5 text-lg leading-8 text-[rgb(var(--color-text-secondary))]">
+          Mira los episodios más recientes de Los Pichy Boys directamente desde YouTube.
+        </p>
+      </div>
+
+      <a
+        href="https://www.youtube.com/@TU_CANAL"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group inline-flex w-fit items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-bold uppercase tracking-[0.16em] text-white transition hover:border-[rgb(var(--color-neon-cyan))]/60 hover:bg-white/10"
+      >
+        Ver canal
+        <span class="ml-2 transition group-hover:translate-x-1">→</span>
+      </a>
+    </div>
+
+    {
+      videos.length > 0 ? (
+        <div class="relative">
+          <button
+            type="button"
+            aria-label="Ver podcasts anteriores"
+            data-youtube-prev
+            class="absolute left-0 top-[38%] z-20 hidden h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border border-white/15 bg-black/60 text-2xl text-white backdrop-blur transition hover:bg-white hover:text-black lg:flex"
+          >
+            ‹
+          </button>
+
+          <button
+            type="button"
+            aria-label="Ver más podcasts"
+            data-youtube-next
+            class="absolute right-0 top-[38%] z-20 hidden h-12 w-12 translate-x-1/2 items-center justify-center rounded-full border border-white/15 bg-black/60 text-2xl text-white backdrop-blur transition hover:bg-white hover:text-black lg:flex"
+          >
+            ›
+          </button>
+
+          <div
+            data-youtube-track
+            class="no-scrollbar flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-4"
+          >
+            {videos.map((video) => (
+              <a
+                href={video.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group min-w-[82%] snap-start sm:min-w-[48%] lg:min-w-[31.5%] xl:min-w-[24%]"
+              >
+                <article class="h-full">
+                  <div class="relative overflow-hidden rounded-[1.35rem] border border-white/10 bg-white/5 shadow-[0_20px_80px_rgba(0,0,0,0.35)]">
+                    <img
+                      src={video.thumbnail}
+                      alt={video.title}
+                      class="aspect-video h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80" />
+
+                    <div class="absolute inset-0 flex items-center justify-center">
+                      <div class="flex h-16 w-16 items-center justify-center rounded-full border border-white/40 bg-white/20 text-white shadow-[0_0_40px_rgba(255,255,255,0.35)] backdrop-blur-md transition duration-300 group-hover:scale-110 group-hover:bg-white group-hover:text-black">
+                        <svg
+                          viewBox="0 0 24 24"
+                          class="ml-1 h-7 w-7 fill-current"
+                          aria-hidden="true"
+                        >
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 px-1">
+                    <p class="text-sm font-medium text-[rgb(var(--color-neon-cyan))]">
+                      {video.channel || "El Pichy Films"}
+                    </p>
+
+                    <h3 class="mt-2 line-clamp-2 text-base font-extrabold leading-snug text-white transition group-hover:text-[rgb(var(--color-neon-pink))]">
+                      {video.title}
+                    </h3>
+                  </div>
+                </article>
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div class="glow-panel p-8 text-[rgb(var(--color-text-secondary))]">
+          No se pudieron cargar los podcasts en este momento.
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<script>
+  const track = document.querySelector("[data-youtube-track]");
+  const prev = document.querySelector("[data-youtube-prev]");
+  const next = document.querySelector("[data-youtube-next]");
+
+  if (track && prev && next) {
+    const scrollAmount = () => track.clientWidth * 0.85;
+
+    prev.addEventListener("click", () => {
+      track.scrollBy({
+        left: -scrollAmount(),
+        behavior: "smooth",
+      });
+    });
+
+    next.addEventListener("click", () => {
+      track.scrollBy({
+        left: scrollAmount(),
+        behavior: "smooth",
+      });
+    });
+  }
+</script>

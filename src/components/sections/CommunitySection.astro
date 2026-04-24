@@ -9,17 +9,45 @@
         <p
           class="mt-5 text-lg leading-8 text-[rgb(var(--color-text-secondary))]"
         >
-          Placeholder para captación: newsletter, alertas de shows, drops de
-          merch o beneficios para fans.
+          Únete a la comunidad de Los Pichy Boys para recibir noticias, próximos
+          shows, drops especiales y sorpresas exclusivas para fans.
         </p>
       </div>
 
-      <form class="mt-10 grid gap-4 md:grid-cols-[1fr_auto]">
+      <form
+        name="pichy-community"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="mt-10 grid gap-4 md:grid-cols-[1fr_1fr_auto]"
+      >
+        <!-- Required hidden input for Netlify Forms -->
+        <input type="hidden" name="form-name" value="pichy-community" />
+
+        <!-- Honeypot field for spam protection -->
+        <p class="hidden">
+          <label>
+            Don’t fill this out if you’re human:
+            <input name="bot-field" />
+          </label>
+        </p>
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Tu nombre"
+          required
+          class="rounded-full border border-white/10 bg-white/5 px-6 py-4 text-white outline-none placeholder:text-[rgb(var(--color-text-secondary))] focus:border-[rgb(var(--color-neon-cyan))]/60"
+        />
+
         <input
           type="email"
+          name="email"
           placeholder="Tu email"
-          class="rounded-full border border-white/10 bg-white/5 px-6 py-4 text-white outline-none placeholder:text-[rgb(var(--color-text-secondary))]"
+          required
+          class="rounded-full border border-white/10 bg-white/5 px-6 py-4 text-white outline-none placeholder:text-[rgb(var(--color-text-secondary))] focus:border-[rgb(var(--color-neon-cyan))]/60"
         />
+
         <button
           type="submit"
           class="button-primary rounded-full px-7 py-4 text-base font-semibold"

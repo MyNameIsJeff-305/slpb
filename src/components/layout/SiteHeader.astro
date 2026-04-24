@@ -1,12 +1,14 @@
 ---
 const navItems = [
   { label: "Shows", href: "#shows" },
-  { label: "Episodios", href: "#episodios" },
+  { label: "Episodios", href: "#podcasts" },
   { label: "Universo", href: "#universo" },
   { label: "Merch", href: "#merch" },
   { label: "Sponsors", href: "#sponsors" },
   { label: "Comunidad", href: "#comunidad" },
 ];
+
+import EmailIcon from "../icons/EmailIcon.astro";
 ---
 
 <header class="fixed inset-x-0 top-0 z-50">
@@ -52,10 +54,14 @@ const navItems = [
       </nav>
 
       <a
-        href="#shows"
-        class="button-primary inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold transition duration-300 hover:-translate-y-0.5"
+        href="mailto:sales@lospichyboys.com"
+        class="button-primary animate-boing inline-flex items-center rounded-full px-5 py-3 text-sm font-semibold transition duration-300 hover:-translate-y-0.5"
       >
-        Ver próximos shows
+        <!-- Este span solo sera visible en dispositivos moviles -->
+        <span class="hidden lg:inline">Anúnciate con Nosotros</span>
+
+        <!-- Este span sera invisible en moviles -->
+        <span class="inline lg:hidden"><EmailIcon class="h-4 w-4" /></span>
       </a>
     </div>
   </div>

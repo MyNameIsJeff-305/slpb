@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Instagram } from "../icons/Instagram";
 
 type Clip = {
   title: string;
@@ -12,6 +13,10 @@ type Character = {
   role: string;
   image: string;
   accent: string;
+  instagram: {
+    username: string;
+    url: string;
+  };
   bio: string;
   moments: string[];
   clips: Clip[];
@@ -30,6 +35,10 @@ const characters: Character[] = [
     role: "El Líder / Miembro de la Mesa Negra",
     image: "/images/cast/ale-cabeza-profile-pic.webp",
     accent: "from-cyan-400/30 via-sky-400/20 to-fuchsia-500/20",
+    instagram: {
+      username: "@lospichyboys",
+      url: "https://www.instagram.com/lospichyboys/",
+    },
     bio: "PLACEHOLDER: Aquí va la biografía de Ale. Describe su personalidad, energía en el show, estilo de humor, presencia escénica y su papel dentro del universo de Los Pichy Boys.",
     moments: [
       "PLACEHOLDER: Mejor momento o segmento icónico de Ale.",
@@ -39,18 +48,18 @@ const characters: Character[] = [
     clips: [
       {
         title: "Ale en modo leyenda",
-        url: "https://www.instagram.com/reel/REEMPLAZAR_1/",
-        thumbnail: "/images/clips/ale-clip-1.webp",
+        url: "https://www.instagram.com/reel/DXaRTExDmpf/",
+        thumbnail: "/images/cast/clips/ale-1.webp",
       },
       {
         title: "Momento viral de Ale",
-        url: "https://www.instagram.com/reel/REEMPLAZAR_2/",
-        thumbnail: "/images/clips/ale-clip-2.webp",
+        url: "https://www.instagram.com/reel/DXKNl4rjnJE/",
+        thumbnail: "/images/cast/clips/ale-2.webp",
       },
       {
         title: "Ale rompiéndola en vivo",
-        url: "https://www.instagram.com/reel/REEMPLAZAR_3/",
-        thumbnail: "/images/clips/ale-clip-3.webp",
+        url: "https://www.instagram.com/reel/DXIRgAzjhmS/",
+        thumbnail: "/images/cast/clips/ale-3.webp",
       },
     ],
     stats: {
@@ -66,6 +75,10 @@ const characters: Character[] = [
     role: "Carponio / Miembro de la Mesa Negra",
     image: "/images/cast/maykito-carponio-profile-pic.webp",
     accent: "from-fuchsia-500/30 via-violet-400/20 to-cyan-400/20",
+    instagram: {
+      username: "@lospichyboys",
+      url: "https://www.instagram.com/lospichyboys/",
+    },
     bio: "PLACEHOLDER: Aquí va la biografía de Maykito. Puedes hablar de su tono, química con el resto, estilo, momentos fuertes y qué lo hace reconocible.",
     moments: [
       "PLACEHOLDER: Mejor momento o segmento icónico de Maykito.",
@@ -75,18 +88,18 @@ const characters: Character[] = [
     clips: [
       {
         title: "Maykito sin filtro",
-        url: "https://www.instagram.com/reel/REEMPLAZAR_4/",
-        thumbnail: "/images/clips/maykito-clip-1.webp",
+        url: "https://www.instagram.com/reel/DWzUowVD36z/",
+        thumbnail: "/images/cast/clips/maykito-1.webp",
       },
       {
         title: "Carponio en acción",
         url: "https://www.instagram.com/reel/REEMPLAZAR_5/",
-        thumbnail: "/images/clips/maykito-clip-2.webp",
+        thumbnail: "/images/cast/clips/maykito-2.webp",
       },
       {
         title: "Reel destacado de Maykito",
-        url: "https://www.instagram.com/reel/REEMPLAZAR_6/",
-        thumbnail: "/images/clips/maykito-clip-3.webp",
+        url: "https://www.instagram.com/reel/DWxS-znjnCT/",
+        thumbnail: "/images/cast/clips/maykito-3.webp",
       },
     ],
     stats: {
@@ -102,6 +115,10 @@ const characters: Character[] = [
     role: "Botija / Productor Creativo",
     image: "/images/cast/machete-botija-profile-pic.webp",
     accent: "from-amber-300/30 via-fuchsia-500/20 to-cyan-400/20",
+    instagram: {
+      username: "@mikeymachete",
+      url: "https://www.instagram.com/mikeymachete/",
+    },
     bio: "PLACEHOLDER: Aquí va la biografía de Machete. Explica el tipo de presencia que aporta, su identidad dentro del show y por qué conecta con la audiencia.",
     moments: [
       "PLACEHOLDER: Mejor momento o segmento icónico de Machete.",
@@ -111,18 +128,18 @@ const characters: Character[] = [
     clips: [
       {
         title: "Machete al máximo",
-        url: "https://www.instagram.com/reel/REEMPLAZAR_7/",
-        thumbnail: "/images/clips/machete-clip-1.webp",
+        url: "https://www.instagram.com/reel/DXfMbgUD0vO/",
+        thumbnail: "/images/cast/clips/machete-1.webp",
       },
       {
         title: "Botija desatado",
-        url: "https://www.instagram.com/reel/REEMPLAZAR_8/",
-        thumbnail: "/images/clips/machete-clip-2.webp",
+        url: "https://www.instagram.com/reel/DXas_6kDqyB/",
+        thumbnail: "/images/cast/clips/machete-2.webp",
       },
       {
         title: "Clip top de Machete",
-        url: "https://www.instagram.com/reel/REEMPLAZAR_9/",
-        thumbnail: "/images/clips/machete-clip-3.webp",
+        url: "https://www.instagram.com/reel/DTd_Im0juCn/",
+        thumbnail: "/images/cast/clips/machete-3.webp",
       },
     ],
     stats: {
@@ -138,6 +155,10 @@ const characters: Character[] = [
     role: "El Monito / Productor Técnico",
     image: "/images/cast/lopez-monito-profile-pic.webp",
     accent: "from-sky-400/30 via-indigo-400/20 to-fuchsia-500/20",
+    instagram: {
+      username: "@alexdwaves",
+      url: "https://www.instagram.com/alexdwaves/",
+    },
     bio: "PLACEHOLDER: Aquí va la biografía de Lopez. Puedes contar su estilo, timing, rol en el grupo y aquello que lo hace único dentro del crew.",
     moments: [
       "PLACEHOLDER: Mejor momento o segmento icónico de Lopez.",
@@ -147,18 +168,18 @@ const characters: Character[] = [
     clips: [
       {
         title: "Lopez con timing perfecto",
-        url: "https://www.instagram.com/reel/REEMPLAZAR_10/",
-        thumbnail: "/images/clips/lopez-clip-1.webp",
+        url: "https://www.instagram.com/reel/DWeeLicjqOf/",
+        thumbnail: "/images/cast/clips/lopez-1.webp",
       },
       {
         title: "El Monito en escena",
-        url: "https://www.instagram.com/reel/REEMPLAZAR_11/",
-        thumbnail: "/images/clips/lopez-clip-2.webp",
+        url: "https://www.instagram.com/reel/DVKiPkcDlMG/",
+        thumbnail: "/images/cast/clips/lopez-2.webp",
       },
       {
         title: "Clip viral de Lopez",
-        url: "https://www.instagram.com/reel/REEMPLAZAR_12/",
-        thumbnail: "/images/clips/lopez-clip-3.webp",
+        url: "https://www.instagram.com/reel/DUvx3z4jnUB/",
+        thumbnail: "/images/cast/clips/lopez-3.webp",
       },
     ],
     stats: {
@@ -174,6 +195,10 @@ const characters: Character[] = [
     role: "El Fumeta / Productor de Contenido",
     image: "/images/cast/chucho-no-folla-profile-pic.webp",
     accent: "from-cyan-300/30 via-fuchsia-500/20 to-amber-300/20",
+    instagram: {
+      username: "@chuchodelchucho",
+      url: "https://www.instagram.com/chuchodelchucho/",
+    },
     bio: "PLACEHOLDER: Aquí va la biografía de Chucho. Incluye personalidad, papel dentro del show, tipo de humor y conexión con la comunidad.",
     moments: [
       "PLACEHOLDER: Mejor momento o segmento icónico de Chucho.",
@@ -183,18 +208,18 @@ const characters: Character[] = [
     clips: [
       {
         title: "Chucho en modo caos",
-        url: "https://www.instagram.com/reel/REEMPLAZAR_13/",
-        thumbnail: "/images/clips/chucho-clip-1.webp",
+        url: "https://www.instagram.com/reel/DVZoLH2jppf/",
+        thumbnail: "/images/cast/clips/chucho-1.webp",
       },
       {
         title: "Clip icónico de Chucho",
-        url: "https://www.instagram.com/reel/REEMPLAZAR_14/",
-        thumbnail: "/images/clips/chucho-clip-2.webp",
+        url: "https://www.instagram.com/reel/DU4AMmHjuSn/",
+        thumbnail: "/images/cast/clips/chucho-2.webp",
       },
       {
         title: "Reel top de Chucho",
-        url: "https://www.instagram.com/reel/REEMPLAZAR_15/",
-        thumbnail: "/images/clips/chucho-clip-3.webp",
+        url: "https://www.instagram.com/reel/DSFdG1njm7k/",
+        thumbnail: "/images/cast/clips/chucho-3.webp",
       },
     ],
     stats: {
@@ -213,6 +238,7 @@ function StatBar({ label, value }: { label: string; value: string }) {
         <span>{label}</span>
         <span>{value}</span>
       </div>
+
       <div className="h-2 overflow-hidden rounded-full bg-white/10">
         <div
           className="h-full rounded-full bg-[linear-gradient(90deg,rgb(var(--color-electric-blue)),rgb(var(--color-vivid-magenta)),rgb(var(--color-warm-spark)))]"
@@ -226,7 +252,7 @@ function StatBar({ label, value }: { label: string; value: string }) {
 function ClipCard({ clip }: { clip: Clip }) {
   return (
     <a
-      href={clip.url}
+      href={clip.url.trim()}
       target="_blank"
       rel="noreferrer"
       className="group relative overflow-hidden rounded-[1.2rem] border border-white/10 bg-white/[0.04] transition duration-300 hover:-translate-y-1 hover:border-fuchsia-300/30 hover:shadow-[0_0_30px_rgba(255,47,179,0.16)]"
@@ -247,22 +273,28 @@ function ClipCard({ clip }: { clip: Clip }) {
           </div>
         </div>
 
-        <div className="absolute left-3 right-3 top-3 flex items-center justify-between sm:left-4 sm:right-4 sm:top-4">
-          <span className="rounded-full border border-white/10 bg-black/30 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/90 backdrop-blur-md sm:px-3 sm:text-[10px]">
-            Reel
-          </span>
-
-          <span className="rounded-full border border-white/10 bg-black/30 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/90 backdrop-blur-md sm:px-3 sm:text-[10px]">
-            Instagram
-          </span>
-        </div>
-
         <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
           <p className="text-sm font-semibold leading-5 text-white sm:leading-6">
             {clip.title}
           </p>
         </div>
       </div>
+    </a>
+  );
+}
+
+function InstagramLink({ selected }: { selected: Character }) {
+  return (
+    <a
+      href={selected.instagram.url}
+      target="_blank"
+      rel="noreferrer"
+      className="mt-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-xs font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:border-fuchsia-300/40 hover:bg-white/[0.1] hover:text-[rgb(var(--color-neon-cyan))] hover:shadow-[0_0_24px_rgba(255,47,179,0.16)] sm:text-sm"
+      aria-label={`Ver Instagram de ${selected.name}`}
+    >
+      <Instagram className="h-4 w-4 sm:h-5 sm:w-5" />
+
+      <span>{selected.instagram.username}</span>
     </a>
   );
 }
@@ -295,11 +327,12 @@ function CharacterDetail({ selected }: { selected: Character }) {
               {selected.role}
             </p>
 
+            <InstagramLink selected={selected} />
+
             <p className="mt-5 text-sm leading-6 text-[rgb(var(--color-text-secondary))] sm:mt-6 md:text-[15px] md:leading-7">
               {selected.bio}
             </p>
-
-            <div className="mt-6 grid grid-cols-1 gap-4 sm:mt-8 sm:grid-cols-2">
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:mt-8 sm:grid-cols-1">
               <StatBar label="Energía" value={selected.stats.energia} />
               <StatBar label="Caos" value={selected.stats.caos} />
               <StatBar label="Sarcasmo" value={selected.stats.sarcasmo} />
@@ -308,10 +341,11 @@ function CharacterDetail({ selected }: { selected: Character }) {
                 value={selected.stats.improvisacion}
               />
             </div>
+
           </div>
         </div>
 
-        <div className="hidden mt-6 rounded-[1.2rem] border border-white/10 bg-black/20 p-4 sm:mt-8 sm:rounded-[1.5rem] sm:p-5 md:hidden xl:block lg:p-6">
+        <div className="mt-6 hidden rounded-[1.2rem] border border-white/10 bg-black/20 p-4 sm:mt-8 sm:rounded-[1.5rem] sm:p-5 md:hidden lg:p-6 xl:block">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[rgb(var(--color-neon-cyan))] sm:text-sm sm:tracking-[0.2em]">
               Clips destacados
@@ -322,7 +356,7 @@ function CharacterDetail({ selected }: { selected: Character }) {
             </span>
           </div>
 
-          <div className="mt-4 grid grid-cols-1 gap-4 sm:mt-5 sm:grid-cols-2 2xl:grid-cols-3 md:grid-cols-3">
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:mt-5 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-3">
             {selected.clips.map((clip, index) => (
               <ClipCard key={`${selected.id}-clip-${index}`} clip={clip} />
             ))}
@@ -390,6 +424,7 @@ function MobileCharacterSlider({
                   <p className="text-sm font-bold text-white sm:text-base">
                     {character.name}
                   </p>
+
                   <p className="mt-1 line-clamp-2 text-[10px] uppercase tracking-[0.12em] text-[rgb(var(--color-text-secondary))]">
                     {character.role}
                   </p>
@@ -418,7 +453,7 @@ function DesktopCharacterGrid({
 }) {
   return (
     <div className="hidden lg:block">
-      <div className="grid grid-cols-2 gap-4 xl:grid-cols-3 xl:gap-6 md:grid-cols-2">
+      <div className="flex flex-col gap-4 xl:gap-5">
         {characters.map((character, index) => {
           const isActive = selectedId === character.id;
           const isLastOddItem =
@@ -444,12 +479,12 @@ function DesktopCharacterGrid({
                 className={`absolute inset-0 bg-gradient-to-br ${character.accent} opacity-70`}
               />
 
-              <div className="relative">
+              <div className="relative flex flex-row items-start gap-3">
                 <div className="aspect-square overflow-hidden rounded-[1.1rem] bg-white/5">
                   <img
                     src={character.image}
                     alt={character.name}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                    className="h-[100px] w-[100px] object-cover transition duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
 
@@ -457,6 +492,7 @@ function DesktopCharacterGrid({
                   <p className="text-lg font-bold text-white">
                     {character.name}
                   </p>
+
                   <p className="mt-1 line-clamp-2 text-xs uppercase tracking-[0.16em] text-[rgb(var(--color-text-secondary))]">
                     {character.role}
                   </p>
@@ -485,7 +521,7 @@ export default function CharacterSelect() {
   );
 
   return (
-    <div className="grid min-w-0 gap-6 overflow-x-clip lg:grid-cols-[0.9fr_1.1fr] lg:gap-8 xl:grid-cols-[0.88fr_1.12fr]">
+    <div className="grid min-w-0 gap-6 overflow-x-clip lg:grid-cols-[0.5fr_1.5fr] lg:gap-8 xl:grid-cols-[0.5fr_1.5fr]">
       <DesktopCharacterGrid
         characters={characters}
         selectedId={selectedId}
