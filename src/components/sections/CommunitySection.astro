@@ -19,10 +19,11 @@
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
+        action="/thank-you"
         class="mt-10 grid gap-4 md:grid-cols-[1fr_1fr_auto]"
       >
+        <input type="hidden" name="form-name" value="contact" />
 
-        <!-- Honeypot field for spam protection -->
         <p class="hidden">
           <label>
             Don’t fill this out if you’re human:
