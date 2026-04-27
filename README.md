@@ -1,4 +1,5 @@
 # Somos Los Pichy Boys — Website Concept
+[![Netlify Status](https://api.netlify.com/api/v1/badges/70a8f301-3859-4c66-874d-7b5cc64b22e2/deploy-status)](https://app.netlify.com/projects/somos-los-pichy-boys/deploys)
 
 A modern, high-energy website concept created for **Los Pichy Boys**, designed to bring their shows, podcast content, sponsors, cast, community, and digital universe into one centralized online experience.
 
