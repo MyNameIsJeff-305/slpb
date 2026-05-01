@@ -34,6 +34,15 @@ const {
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0A0F2D" />
 
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={Astro.props.ogImage || "/images/shot-2.png"} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.site?.url || ""} />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+
     <!-- Placeholder de tipografías. Puedes cambiar a self-hosted más adelante si quieres máxima performance. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
